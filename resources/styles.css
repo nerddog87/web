@@ -7,9 +7,9 @@
 
 /* Basic reset */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
+html,body{height:100%;overflow-x:hidden}
 :root{--content-width:600px}
-body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;display:flex;align-items:center;justify-content:center;min-height:100vh}
+body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;display:flex;align-items:center;justify-content:center;min-height:100vh;padding-top:env(safe-area-inset-top, 0)}
 
 .wrap{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:40px 16px;gap:10px}
 
@@ -161,6 +161,42 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 	100%{transform:translateY(100vh) rotate(360deg);opacity:0}
 }
 
+/* Mobile optimizations */
+.mobile .toast-container {
+  top: 10px !important;
+  right: 10px !important;
+  left: 10px !important;
+}
+
+.mobile .toast {
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  min-width: auto;
+}
+
+.mobile .snowflake {
+  font-size: 10px;
+}
+
+.mobile .bar {
+  width: 4px;
+}
+
+.mobile .player .control {
+  min-width: 32px;
+  height: 32px;
+  font-size: 10px;
+}
+
+.mobile .progress-wrap {
+  height: 20px;
+}
+
+.mobile .progress-wrap::before,
+.mobile .progress-bar {
+  height: 12px;
+}
+
 @media (max-width:720px){
   .main-area{flex-direction:column}
   .card{width:100%}
@@ -171,9 +207,10 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 }
 
 @media (max-width:480px){
-  .wrap{padding:20px 8px}
+  .wrap{padding:15px 8px}
   .avatar{width:80px;height:80px}
   .name{font-size:1.3rem}
   .player{padding:10px}
   .bar{width:4px}
+  body{padding-top:env(safe-area-inset-top, 0)}
 }
