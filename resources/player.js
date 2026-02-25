@@ -410,50 +410,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     snowContainer.innerHTML = '';
   }
 
-  // Animated typing title
-  function typeTitle() {
-    const titles = ['IM EVIL ', 'IM EVIL ', 'IM EVIL '];
-    let titleIndex = 0;
-    let charIndex = 0;
-    let currentTitle = '';
-    let isDeleting = false;
-    
-    // Set initial title immediately to prevent showing original
-    document.title = '';
-    
-    function type() {
-      const fullTitle = titles[titleIndex];
-      
-      if (!isDeleting) {
-        currentTitle = fullTitle.substring(0, charIndex + 1);
-        charIndex++;
-        
-        if (charIndex === fullTitle.length) {
-          isDeleting = true;
-          setTimeout(type, 2000); // Pause at end
-          return;
-        }
-      } else {
-        currentTitle = fullTitle.substring(0, charIndex - 1);
-        charIndex--;
-        
-        if (charIndex === 0) {
-          isDeleting = false;
-          titleIndex = (titleIndex + 1) % titles.length;
-        }
-      }
-      
-      document.title = currentTitle;
-      const typingSpeed = isDeleting ? 50 : 100;
-      setTimeout(type, typingSpeed);
-    }
-    
-    // Start animation immediately
-    setTimeout(type, 100);
-  }
-
-  typeTitle();
-
+  
   function loadSong() {
     audio.src = song.src;
     songTitle.textContent = song.name;
