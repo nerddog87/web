@@ -418,6 +418,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     let currentTitle = '';
     let isDeleting = false;
     
+    // Set initial title immediately to prevent showing original
+    document.title = '';
+    
     function type() {
       const fullTitle = titles[titleIndex];
       
@@ -445,7 +448,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       setTimeout(type, typingSpeed);
     }
     
-    type();
+    // Start animation immediately
+    setTimeout(type, 100);
   }
 
   typeTitle();
