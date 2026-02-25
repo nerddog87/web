@@ -12,6 +12,49 @@ document.addEventListener('DOMContentLoaded',()=>{
   const tagline = document.getElementById('tagline');
   const toastContainer = document.getElementById('toastContainer');
 
+  // Mobile detection
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           window.innerWidth <= 768;
+  }
+
+  // Mobile optimizations
+  if (isMobile()) {
+    // Reduce snow frequency on mobile for performance
+    const originalCreateSnowflake = window.createSnowflake;
+    if (originalCreateSnowflake) {
+      let snowCounter = 0;
+      window.createSnowflake = function() {
+        snowCounter++;
+        if (snowCounter % 2 === 0) { // Only create every other snowflake
+          originalCreateSnowflake();
+        }
+      };
+    }
+
+    // Add mobile class to body for CSS targeting
+    document.body.classList.add('mobile');
+    
+    // Adjust toast positioning for mobile
+    if (toastContainer) {
+      toastContainer.style.top = '10px';
+      toastContainer.style.right = '10px';
+    }
+
+    // Optimize visualizer performance on mobile
+    const originalAnimateVisualizer = window.animateVisualizer;
+    if (originalAnimateVisualizer) {
+      let visualizerInterval;
+      window.animateVisualizer = function() {
+        const bars = visualizer.querySelectorAll('.bar');
+        bars.forEach(bar => {
+          const height = Math.random() * 60 + 20; // Slightly reduced range
+          bar.style.height = height + '%';
+        });
+      };
+    }
+  }
+
   // Toast notification function
   function showToast(message, type = 'success') {
     // Remove any existing toasts instantly
