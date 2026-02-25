@@ -9,7 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow-x:hidden}
 :root{--content-width:600px}
-body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;display:flex;align-items:center;justify-content:center;min-height:100vh;padding-top:env(safe-area-inset-top, 0)}
+body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;display:flex;align-items:flex-start;justify-content:center;min-height:100vh;padding-top:calc(env(safe-area-inset-top, 0) + 20px)}
 
 .wrap{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:40px 16px;gap:10px}
 
@@ -207,7 +207,7 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 }
 
 @media (max-width:480px){
-  .wrap{padding:15px 8px}
+  .wrap{padding:25px 8px 15px 8px}
   .avatar{width:80px;height:80px}
   .name{font-size:1.3rem}
   .player{padding:10px}
