@@ -397,8 +397,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   // Update every 10 seconds as fallback (reduced from 60 for faster updates)
   setInterval(tryHTTPAPI, 10000);
 
-  // Single song - KNICKS IN 2013 - smokedope2016
-  const song = { src: 'resources/KNICKS%20IN%202013%20-%20smokedope2016.mp3', name: 'KNICKS IN 2013 - smokedope2016' };
+  // Single song - sedated - jaydes
+  const song = { src: 'resources/sedated%20-%20jaydes.mp3', name: 'sedated - jaydes' };
 
   // Snow functionality
   let snowInterval;
