@@ -184,14 +184,17 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   function updateSpotifyStatus(data) {
     try {
+      console.log('Discord data:', data);
+      console.log('Activities:', data.activities);
       const spotifyActivity = data.activities?.find(activity => activity.type === 2 && activity.name === 'Spotify');
+      console.log('Spotify activity found:', spotifyActivity);
       
-      if (spotifyActivity && spotifyActivity.assets) {
+      if (spotifyActivity) {
         // Show the Spotify card immediately
         spotifyCard.classList.remove('hidden');
         
-        // Update album art
-        if (spotifyActivity.assets.large_image) {
+        // Update album art (use placeholder if no assets)
+        if (spotifyActivity.assets?.large_image) {
           const albumArtUrl = spotifyActivity.assets.large_image.startsWith('spotify:') 
             ? `https://i.scdn.co/image/${spotifyActivity.assets.large_image.replace('spotify:', '')}`
             : spotifyActivity.assets.large_image;
