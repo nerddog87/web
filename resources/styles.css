@@ -5,6 +5,9 @@
   font-style: normal;
 }
 
+/* Background video */
+.bg-video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+
 /* Basic reset */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow-x:hidden}
@@ -15,7 +18,7 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 
 .main-area{width:min(var(--content-width),96%);display:flex;gap:10px;align-items:flex-start}
 
-.card{width:100%;background:#2a2a2a;border:2px solid #444;padding:20px;display:flex;gap:20px;align-items:stretch;box-shadow:0 0 10px rgba(255,255,255,0.1);min-height:254px;border-radius:12px}
+.card{width:100%;background:rgba(42,42,42,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);padding:20px;display:flex;gap:20px;align-items:stretch;box-shadow:0 4px 30px rgba(0,0,0,0.3);min-height:254px;border-radius:12px}
 
 .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:16px;justify-content:center;flex:1}
 .avatar{width:100px;height:100px;border:2px solid #444;object-fit:cover;background:#333;border-radius:8px}
@@ -25,8 +28,8 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 
 .player-visualizer-column{width:100%;display:flex;flex-direction:column;gap:10px}
 
-.empty-card{width:min(var(--content-width),96%);display:flex;justify-content:center}
-.empty-content{width:100%;display:flex;flex-direction:column;gap:8px;padding:40px;background:#2a2a2a;border:2px solid #444;box-shadow:0 0 10px rgba(255,255,255,0.1);min-height:120px;border-radius:12px}
+.discord-card{width:100%;display:flex;justify-content:center}
+.discord-content{width:100%;display:flex;flex-direction:column;gap:8px;padding:20px;background:rgba(42,42,42,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 4px 30px rgba(0,0,0,0.3);min-height:auto;border-radius:12px}
 
 .discord-status{display:flex;align-items:center;gap:15px;padding:0;background:transparent;border:none;border-radius:0}
 .discord-avatar{width:64px;height:64px;border-radius:12px;border:2px solid #444;object-fit:cover;image-rendering:crisp-edges;image-rendering:pixelated}
@@ -42,7 +45,7 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 
 .spotify-card{width:min(var(--content-width),96%);display:flex;justify-content:center;transition:opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;visibility:visible}
 .spotify-card.hidden{opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none}
-.spotify-content{width:100%;display:flex;flex-direction:column;gap:8px;padding:40px;background:#2a2a2a;border:2px solid #444;box-shadow:0 0 10px rgba(255,255,255,0.1);min-height:120px;border-radius:12px}
+.spotify-content{width:100%;display:flex;flex-direction:column;gap:8px;padding:40px;background:rgba(42,42,42,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);box-shadow:0 4px 30px rgba(0,0,0,0.3);min-height:120px;border-radius:12px}
 .spotify-status{display:flex;align-items:center;gap:15px;padding:0;background:transparent;border:none;border-radius:0}
 .spotify-album-art{width:64px;height:64px;border-radius:8px;border:2px solid #444;object-fit:cover}
 .spotify-info{display:flex;flex-direction:column;gap:3px;flex:1}
@@ -56,7 +59,7 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 
 .player-card{width:100%;display:flex;justify-content:center}
 #player{display:flex;flex-direction:column;justify-content:space-between;height:120px;padding:12px}
-.player{width:100%;display:flex;flex-direction:column;gap:8px;padding:40px;background:#2a2a2a;border:2px solid #444;justify-content:space-between;box-shadow:0 0 10px rgba(255,255,255,0.1);min-height:120px;border-radius:12px}
+.player{width:100%;display:flex;flex-direction:column;gap:8px;padding:40px;background:rgba(42,42,42,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);justify-content:space-between;box-shadow:0 4px 30px rgba(0,0,0,0.3);min-height:120px;border-radius:12px}
 .player .control{background:#333;border:2px solid #555;color:#ccc;font-family:"Smallest Pixel-7", monospace;font-size:12px;font-weight:bold;padding:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-transform:uppercase;position:relative;min-width:36px;height:36px;border-radius:8px}
 
 /* Custom play/pause icon */
@@ -118,7 +121,7 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
 .play-controls{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:100%}
 
 /* Visualizer hero section */
-.visualizer-card{width:100%;background:#2a2a2a;border:2px solid #444;padding:12px;display:flex;gap:20px;align-items:stretch;box-shadow:0 0 10px rgba(255,255,255,0.1);min-height:120px;border-radius:12px}
+.visualizer-card{width:100%;background:rgba(42,42,42,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);padding:12px;display:flex;gap:20px;align-items:stretch;box-shadow:0 4px 30px rgba(0,0,0,0.3);min-height:120px;border-radius:12px}
 .visualizer{display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px;justify-content:center;flex:1}
 .visualizer-container{width:100%;height:80px;display:flex;align-items:flex-end;justify-content:center;gap:2px}
 .bar{width:6px;background:#666;border:1px solid #888;transition:height 0.1s ease;min-height:3px;border-radius:2px}
@@ -151,16 +154,6 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
   to{opacity:0}
 }
 
-/* Snow overlay */
-.snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:999}
-.snowflake{position:absolute;top:-10px;color:#fff;font-family:"Smallest Pixel-7", monospace;font-size:12px;animation:fall linear infinite;opacity:0.8;text-shadow:0 0 3px rgba(255,255,255,0.8),0 0 6px rgba(255,255,255,0.4)}
-@keyframes fall{
-	0%{transform:translateY(0) rotate(0deg);opacity:0}
-	10%{opacity:0.8}
-	90%{opacity:0.8}
-	100%{transform:translateY(100vh) rotate(360deg);opacity:0}
-}
-
 /* Mobile optimizations */
 .mobile .toast-container {
   top: 10px !important;
@@ -172,10 +165,6 @@ body{font-family:"Smallest Pixel-7", monospace;background:#1a1a1a;color:#ccc;dis
   font-size: 0.8rem;
   padding: 8px 12px;
   min-width: auto;
-}
-
-.mobile .snowflake {
-  font-size: 10px;
 }
 
 .mobile .bar {
