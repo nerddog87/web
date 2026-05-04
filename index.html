@@ -9,12 +9,14 @@
 	<link rel="stylesheet" href="resources/styles.css">
 </head>
 <body>
+	<video class="bg-video" autoplay muted loop playsinline>
+		<source src="resources/bg.mp4" type="video/mp4">
+	</video>
 	<div class="overlay" id="overlay">
 		<div class="overlay-content">
 			<div class="enter-text">Click to Enter</div>
 		</div>
 	</div>
-	<div class="snow-container" id="snowContainer"></div>
 	<div class="toast-container" id="toastContainer"></div>
 	<div class="wrap">
 		<div class="main-area">
@@ -22,7 +24,7 @@
 				<main class="hero">
 					<img src="resources/avatar.jpg" alt="Avatar" class="avatar">
 					<h1 class="name">apollo</h1>
-					<p class="tagline" id="tagline" title="Click to copy Steam link">Steam</p>
+					<p class="tagline" id="tagline"></p>
 				</main>
 			</div>
 			<div class="player-visualizer-column">
@@ -44,23 +46,16 @@
 						<audio id="audio" src="resources/KNICKS%20IN%202013%20-%20smokedope2016.mp3" preload="metadata"></audio>
 					</div>
 				</div>
-				<div class="visualizer-card">
-					<div class="visualizer">
-						<div class="visualizer-container" id="visualizer">
+				<div class="discord-card">
+					<div class="discord-content">
+						<div class="discord-status">
+							<img id="discordAvatar" src="" alt="Discord Avatar" class="discord-avatar">
+							<div class="status-info">
+								<div id="discordName" class="discord-name">Loading...</div>
+								<div id="discordStatus" class="discord-status-text">Checking status...</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="empty-card">
-			<div class="empty-content">
-				<div class="discord-status">
-					<img id="discordAvatar" src="" alt="Discord Avatar" class="discord-avatar">
-					<div class="status-info">
-						<div id="discordName" class="discord-name">Loading...</div>
-						<div id="discordStatus" class="discord-status-text">Checking status...</div>
-					</div>
-					<button id="copyDiscordId" class="copy-discord-id" title="Copy Discord Username">Copy Username</button>
 				</div>
 			</div>
 		</div>
@@ -84,7 +79,7 @@
 		</div>
 	</div>
 
-	<script src="resources/player.js"></script>
+	<script src="resources/script.js"></script>
 </body>
 </html>
 
